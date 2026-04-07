@@ -8,8 +8,8 @@ import java.nio.file.Path;
 public class MyKVServiceFactoryFile extends KVServiceFactory {
     @Override
     protected KVService doCreate(int port) throws IOException {
-        // Создаем папку data в текущей директории проекта
-        Path dataPath = Path.of("data"); 
+        // Создаем папку data вне проекта
+        Path dataPath = Path.of("..", "data"); 
         return new MyKVService(port, new MyDaoFile(dataPath));
     }
 }
